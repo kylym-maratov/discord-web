@@ -11,6 +11,9 @@ const styles = {
     btnIcon: {
         fontSize: 35
     },
+    btn: {
+        marginTop: 1
+    }
 
 }
 
@@ -19,10 +22,10 @@ export const NavButtons: React.FC = () => {
     return (
         <Box sx={{ ...styles.main }}>
             <Box sx={{ width: "64%" }}>
-                <IconButton type="button" sx={{ background: "black" }}>
+                <IconButton type="button" sx={{ ...styles.btn, background: "black" }}>
                     <SearchIcon sx={{ ...styles.btnIcon }} />
                 </IconButton>
-                <IconButton type="button" sx={{ background: "orange" }}>
+                <IconButton type="button" sx={{ ...styles.btn, background: "orange" }}>
                     <AddIcon sx={{ ...styles.btnIcon }} />
                 </IconButton>
             </Box>

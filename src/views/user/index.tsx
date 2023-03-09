@@ -1,4 +1,4 @@
-import { Avatar, ButtonGroup, IconButton, Stack, Typography } from "@mui/material"
+import { Avatar, ButtonGroup, IconButton, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import SettingsIcon from '@mui/icons-material/Settings';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
@@ -14,14 +14,15 @@ const user = {
 
 const styles = {
     main: {
-        position: "fixed",
-        bottom: "0px",
         padding: 1,
         background: "#404249",
         width: "300px",
+        height: "70px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        borderRadius: 3,
+        marginTop: 2
     }
 }
 

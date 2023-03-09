@@ -12,14 +12,15 @@ import Image from "next/image";
 
 const StyledSubChat = styled(withTheme(Box))(({ theme }) => ({
     background: "#2F3136",
-    width: 300
+    width: 300,
+    borderRadius: 10
 }))
 
 const styles = {
-
     chatImg: {
         width: "100%",
-        height: 170
+        height: 170,
+        borderRadius: 10
     },
     chatName: {
         fontWeight: "bold",
@@ -27,8 +28,7 @@ const styles = {
         marginLeft: 1
     },
     empty: {
-        textAlign: "center",
-        marginTop: 35
+        textAlign: "center"
     },
     subChats: {
         borderRadius: 2,
@@ -52,9 +52,10 @@ export const SubChat: React.FC = () => {
     const [openSubChat, setOpenSubChat] = useState<boolean>(false);
 
     useEffect(() => {
-        const timeout = setTimeout(() => setOpenSubChat(true), 500);
-        setOpenSubChat(false)
+        const timeout = setTimeout(() => setOpenSubChat(true), 200);
 
+
+        setOpenSubChat(false)
         return () => clearTimeout(timeout);
     }, [activeChat])
 
@@ -97,13 +98,12 @@ export const SubChat: React.FC = () => {
                                 </Box>
                             </Box>
                         </Grow>
-                        <User />
+
                     </>)
                     :
                     (
                         <Box sx={{ ...styles.empty }}>
                             <Image src={NothingImage} width={170} alt="nothing" />
-                            <User />
                         </Box>
                     )
                 }

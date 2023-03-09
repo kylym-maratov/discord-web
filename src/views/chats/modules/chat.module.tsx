@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setActiveChat } from "@/store/reducers/chat";
 import styled from "@emotion/styled";
-import { Avatar, Badge, Box, Typography } from "@mui/material"
+import { Avatar, Badge, Box } from "@mui/material"
 
 interface Props {
     chatData: {
@@ -36,7 +36,7 @@ const styles = {
     }
 }
 
-const StyledSelected = styled(Box)(({ theme }) => ({
+const StyledSelected = styled(Box)(() => ({
     width: "4px",
     height: "30px",
     background: "white",
@@ -44,7 +44,7 @@ const StyledSelected = styled(Box)(({ theme }) => ({
     margin: "auto 0px"
 }))
 
-const StyledAvatar = styled(Avatar)(({ theme }) => ({
+const StyledAvatar = styled(Avatar)(() => ({
     width: 55,
     height: 55,
     cursor: "pointer",

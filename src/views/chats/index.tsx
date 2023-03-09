@@ -5,26 +5,20 @@ import { Box } from "@mui/system"
 import React from "react"
 import { NavButtons } from "./modules/buttons.module"
 import { Chat } from "./modules/chat.module"
-import { SubChat } from "./modules/subchat.module"
-import { chats } from "./static/static"
-
+import { chats } from "./static/chats"
 
 const styles = {
-    main: {
-        display: "flex",
-        position: "fixed",
-        height: "100%"
-    },
-    skeleton: {
-        marginLeft: 2,
-        marginTop: 10
+    hr: {
+        height: "2px", background: "white", width: "20px", margin: "20px auto"
     }
 }
 
-const StyledChats = styled(Box)(({ theme }) => (
+const StyledChats = styled(Box)(() => (
     {
         width: "80px",
         background: "#202225",
+        borderRadius: 10,
+        marginLeft: 10
     }
 ))
 
@@ -37,37 +31,29 @@ export const Chats: React.FC = () => {
                 isLoading
                     ?
                     (
-                        <Box sx={{ display: "flex" }}>
-                            <Skeleton animation="wave" variant="rounded" sx={{ ...styles.skeleton }}>
-                                <Box>
-                                    <StyledChats>
-                                        <NavButtons />
-                                        {chats.length && chats.map((item, key) => (
-                                            <Chat chatData={item} key={key} />
-                                        ))}
-                                    </StyledChats>
-                                </Box>
-                            </Skeleton>
-                            <Skeleton animation="wave" variant="rounded" sx={{ ...styles.skeleton }}>
-                                <SubChat />
-                            </Skeleton>
-                        </Box>
+                        <Skeleton animation="wave" variant="rounded" sx={{ marginLeft: 1 }}>
+                            <Box>
+                                <StyledChats>
+                                    <NavButtons />
+                                    {chats.length && chats.map((item, key) => (
+                                        <Chat chatData={item} key={key} />
+                                    ))}
+                                </StyledChats>
+                            </Box>
+                        </Skeleton>
                     )
                     :
                     (
                         <Slide in={true} direction="right">
-                            <Box sx={{ ...styles.main }}>
-                                <StyledChats>
-                                    <NavButtons />
-                                    <Box sx={{ height: "2px", background: "white", width: "20px", margin: "20px auto" }}></Box>
-                                    {
-                                        chats.length && chats.map((item, key) => (
-                                            <Chat chatData={item} key={key} />
-                                        ))
-                                    }
-                                </StyledChats>
-                                <SubChat />
-                            </Box>
+                            <StyledChats>
+                                <NavButtons />
+                                <Box sx={{ ...styles.hr }}></Box>
+                                {
+                                    chats.length && chats.map((item, key) => (
+                                        <Chat chatData={item} key={key} />
+                                    ))
+                                }
+                            </StyledChats>
                         </Slide>
                     )
             }
